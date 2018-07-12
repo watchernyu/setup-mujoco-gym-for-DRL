@@ -6,6 +6,7 @@ run the following command to get an interactive shell. your login shell doesn't 
 srun -p aquila --pty --mem  500 -t 0-01:00 bash
 ```
 This will let you enter a new shell, on a compute node in the aquila partition
+NOTE: sometimes there is network issue on compute nodes, if that's the case, try set up stuff on your login node or debug partition and test them in a compute node.  
 
 0. 
 load conda first  
