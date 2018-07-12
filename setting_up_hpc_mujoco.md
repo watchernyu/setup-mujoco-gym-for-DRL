@@ -14,9 +14,11 @@ load conda first
 set up a virtual environment with the command (call it 'rl' or whatever, and use 3.6 for less trouble), if you never used virtualenv, try spend 10 min search for what that is  
 ```
 conda create -n rl python=3.6
-activate env
 source activate rl 
 ```
+
+For all of the following, you should be inside your rl virtualenv.
+
 1.
 Install gym, download gym github repo and install minimum, according to gym doc.  
 ```
