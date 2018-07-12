@@ -1,9 +1,8 @@
-#Instructions to set up mujoco and torch on your hpc 
+# Instructions to set up mujoco and torch on your hpc 
 
 ssh into netid@hpc.shanghai.nyu.edu  
-#run the following command to get an interactive shell. your login shell doesn't have updated version of glibc, so you should set up env here, note that you should use aquila as your partition  
+run the following command to get an interactive shell. your login shell doesn't have updated version of glibc, so you should set up env here, note that you should use aquila as your partition (add flag --gres=gpu:1 if you want try gpu)  
 ```
-srun -p aquila --gres=gpu:1 --pty --mem  500 -t 0-01:00 bash
 srun -p aquila --pty --mem  500 -t 0-01:00 bash
 ```
 This will let you enter a new shell, on a compute node in the aquila partition
@@ -41,8 +40,8 @@ and put mjpro150 folder into this folder also put in your liscense, you can use 
 
 4. 
 add additional library path line to .bashrc,
-you can just run the following command to do this:  
-`echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/gpfsnyu/home/<your user name>/.mujoco/mjpro150/bin" >> ~/.bashrc`
+you can just run the following command to do this (or you can just try import mujoco_py in python and follow the mujoco_py error message.):  
+`echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/gpfsnyu/home/<your user name>/.mujoco/mjpro150/bin" >> ~/.bashrc`  
 
 5. 
 now you want to get back to the gym folder and install mujoco (after you set up mujoco files and stuff)
