@@ -41,8 +41,8 @@ and put mjpro150 folder into this folder also put in your liscense, you can use 
 4. 
 add additional library path line to .bashrc,
 you can just run the following command to do this (or you can just try import mujoco_py in python and follow the mujoco_py error message.):  
-`echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/gpfsnyu/home/<your user name>/.mujoco/mjpro150/bin" >> ~/.bashrc`  
-NOTE: "YOUR USER NAME" should be your netid, please change that part.  
+`echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/gpfsnyu/home/<YOUR USER NAME>/.mujoco/mjpro150/bin" >> ~/.bashrc`  
+NOTE: `<YOUR USER NAME>` should be your netid, please change that part.  
 
 
 5. 
