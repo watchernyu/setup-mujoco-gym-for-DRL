@@ -1,12 +1,9 @@
 # Instructions to set up mujoco and torch on your hpc 
-
-ssh into netid@hpc.shanghai.nyu.edu  
-run the following command to get an interactive shell. your login shell doesn't have updated version of glibc, so you should set up env here, note that you should use aquila as your partition (add flag --gres=gpu:1 if you want try gpu)  
+First log in to your hpc account (After you applied for one)  
 ```
-srun -p aquila --pty --mem  500 -t 0-01:00 bash
+ssh netid@hpc.shanghai.nyu.edu  
 ```
-This will let you enter a new shell, on a compute node in the aquila partition
-NOTE: sometimes there is network issue on compute nodes, if that's the case, try set up stuff on your login node or debug partition and test them in a compute node.  
+NOTE: by default compute nodes don't have Internet access, so you should set up your environment in your login node. The login node doesn't have correct dependencies installed. So when you test your mujoco_py, you should do that in a compute node (see step 8).
 
 0. 
 load conda first  
@@ -53,7 +50,7 @@ cd gym
 pip install -e '.[mujoco]'
 ```
 
-other dependencies should be there already, thanks to help from our hpc admin Zhiguo. Test mujoco by running python and import mujoco_py, and then try make a InvertedPendulum-v2 env. If everything works, then mujoco is good to go.
+other dependencies should be there already, thanks to help from our hpc admin Zhiguo.
 
 6. 
 install torch into your rl virtualenv, according to pytorch website
@@ -64,3 +61,14 @@ conda install pytorch torchvision cuda90 -c pytorch
 
 7. 
 install any other python libraries you want to use (for example seaborn)
+
+8.
+Test mujoco by running python and import mujoco_py, and then try make a InvertedPendulum-v2 env. If everything works, then mujoco is good to go.
+ 
+run the following command to get an interactive shell. your login shell doesn't have updated version of glibc, so you should set up env here, note that you should use aquila as your partition (add flag --gres=gpu:1 if you want try gpu)  
+```
+srun -p aquila --pty --mem  500 -t 0-01:00 bash
+```
+This will let you enter a new shell, on a compute node in the aquila partition  
+
+Test your mujoco_py in this interactive shell.
