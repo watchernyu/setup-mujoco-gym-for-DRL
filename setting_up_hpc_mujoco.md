@@ -5,6 +5,8 @@ ssh netid@hpc.shanghai.nyu.edu
 ```
 NOTE: by default compute nodes don't have Internet access, so you should set up your environment in your login node. The login node doesn't have correct dependencies installed. So when you test your mujoco_py, you should do that in a compute node (see step 8).
 
+NOTE: download stuff 
+
 0. 
 load conda first  
 `module load anaconda3`  
@@ -64,13 +66,14 @@ conda install pytorch torchvision cuda90 -c pytorch
 7. 
 install any other python libraries you want to use (for example seaborn)
 
-8.
-Test mujoco by running python and import mujoco_py, and then try make a InvertedPendulum-v2 env. If everything works, then mujoco is good to go.
+8. Testing
+
+You want to do this part in an interactive shell on a compute node. NOTE: PLEASE USE THE **aquila** partition for your testing, **don't use** your **login** node or **debug** partition, the login and debug partition don't have correct versions of the dependencies.
  
-run the following command to get an interactive shell. your login shell doesn't have updated version of glibc, so you should set up env here, note that you should use aquila as your partition (add flag --gres=gpu:1 if you want try gpu)  
+run the following command to get an interactive shell with cpu. 
 ```
 srun -p aquila --pty --mem  500 -t 0-01:00 bash
 ```
 This will let you enter a new shell, on a compute node in the aquila partition  
 
-Test your mujoco_py in this interactive shell.
+Test your mujoco_py in this interactive shell. Load anaconda3, test mujoco by running python and import mujoco_py, and then try make a InvertedPendulum-v2 env. If everything works, then mujoco is good to go.
