@@ -23,3 +23,15 @@ sacct -j JobID
 
 # cancel
 scancel  JobID
+
+
+
+Additional hpc job settings:
+Use gpu add this line, n is number of gpus:
+#SBATCH --gres=gpu:n
+
+Decide when email is sent. Choose from END, FAIL, BEGIN, ALL
+#SBATCH --mail-type=ALL
+
+Number of cpu nodes. You have to write parallel code yourself!!! Don't expect this to automatically make your code parallel. If you don't have parallel code, just use one node.
+#SBATCH --nodes=2
