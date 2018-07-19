@@ -8,7 +8,6 @@
 #SBATCH --time=48:00:00
 #SBATCH --nodes=1
 #SBATCH --mem=16GB
-#SBATCH --gres=gpu:1 
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=netid@nyu.edu
 
