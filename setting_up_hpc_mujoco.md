@@ -1,11 +1,12 @@
 # Instructions to set up mujoco and torch on your hpc 
+*Please pay special attention to places with the word **NOTE**, that's where things can go wrong easily.*
+
 First log in to your hpc account (After you applied for one)  
 ```
 ssh netid@hpc.shanghai.nyu.edu  
 ```
-NOTE: by default compute nodes don't have Internet access, so you should set up your environment in your login node. The login node doesn't have correct dependencies installed. So when you test your mujoco_py, you should do that in a compute node (see step 8).
+**NOTE**: by default compute nodes don't have Internet access, so you should set up your environment in your login node. The login node doesn't have correct dependencies installed. So when you test your mujoco_py (test means doing sth like running python and then import mujoco_py), you should do that in a compute node (see step 8).
 
-NOTE: download stuff 
 
 0. 
 load conda first  
@@ -16,7 +17,7 @@ conda create -n rl python=3.6
 source activate rl 
 ```
 
-For all of the following, you should be inside your rl virtualenv.
+**NOTE**: For all of the following, you should be inside your rl virtualenv. (you want to install python libraries into your rl virtualenv, not somewhere else.)
 
 1.
 Install gym, download gym github repo and install minimum, according to gym doc.  
@@ -26,7 +27,7 @@ cd gym
 pip install -e .
 ```
 2.
-Install mujoco-py, with the correct way
+Install mujoco-py, with the correct way. **NOTE**: other ways of installing mujoco-py often fail, please use this method. 
 ```
 git clone https://github.com/openai/mujoco-py
 cd mujoco-py
@@ -39,14 +40,14 @@ cd ~
 mkdir .mujoco
 ```
 and put mjpro150 folder into this folder also put in your liscense.  
-NOTE: THE HPC IS RUNNING LINUX SYSTEM, MEANING IF YOU USE MAC/WINDOWS, YOU CANNOT JUST COPY YOUR MUJOCO BINARY (MAC/WINDOWS VERSION) INTO THE HPC MACHINES. Instead, you should download the linux version of mujoco binary from the mujoco website on your machine and then transfer to hpc using Filezella, or download it from mujoco website to hpc directly, using sth like wget.  
+**NOTE**: THE HPC IS RUNNING LINUX SYSTEM, MEANING IF YOU USE MAC/WINDOWS, YOU CANNOT JUST COPY YOUR MUJOCO BINARY (MAC/WINDOWS VERSION) INTO THE HPC MACHINES. Instead, you should download the linux version of mujoco binary from the mujoco website on your machine and then transfer to hpc using Filezella, or download it from mujoco website to hpc directly, using sth like wget.  
 
 
 4. 
 add additional library path line to .bashrc,
 you can just run the following command to do this (or you can just try import mujoco_py in python and follow the mujoco_py error message.):  
 `echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/gpfsnyu/home/<YOUR USER NAME>/.mujoco/mjpro150/bin' >> ~/.bashrc`  
-NOTE: `<YOUR USER NAME>` should be your netid, please change that part. Note that you should use single quotation marks '', don't use double quotation, otherwise the line added to your .bashrc will be different.     
+**NOTE**: `<YOUR USER NAME>` should be your netid, please change that part. **NOTE** that you should use single quotation marks '', don't use double quotation, otherwise the line added to your .bashrc will be different.     
 
 
 5. 
