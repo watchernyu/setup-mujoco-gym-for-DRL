@@ -1,5 +1,6 @@
 # Instructions to set up mujoco and torch on your hpc 
-*Please pay special attention to places with the word **NOTE**, that's where things can go wrong easily.*
+*Please pay special attention to places with the word **NOTE**, that's where things can go wrong easily.*  
+Last updated July 19, 2018.  
 
 First log in to your hpc account (After you applied for one)  
 ```
@@ -46,8 +47,8 @@ and put mjpro150 folder into this folder also put in your liscense.
 4. 
 add additional library path line to .bashrc,
 you can just run the following command to do this (or you can just try import mujoco_py in python and follow the mujoco_py error message.):  
-`echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/gpfsnyu/home/<YOUR USER NAME>/.mujoco/mjpro150/bin' >> ~/.bashrc`  
-**NOTE**: `<YOUR USER NAME>` should be your netid, please change that part. **NOTE** that you should use single quotation marks '', don't use double quotation, otherwise the line added to your .bashrc will be different.     
+`echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/gpfsnyu/home/NETID/.mujoco/mjpro150/bin' >> ~/.bashrc`  
+**NOTE**: `NETID` should be your netid, please change that part. **NOTE** that you should use single quotation marks '', don't use double quotation, otherwise the line added to your .bashrc will be different. 
 
 
 5. 
