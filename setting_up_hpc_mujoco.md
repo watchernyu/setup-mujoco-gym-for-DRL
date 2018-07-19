@@ -38,7 +38,9 @@ create .mujoco folder under your home:
 cd ~ 
 mkdir .mujoco
 ```
-and put mjpro150 folder into this folder also put in your liscense, you can use filezilla
+and put mjpro150 folder into this folder also put in your liscense.  
+NOTE: THE HPC IS RUNNING LINUX SYSTEM, MEANING IF YOU USE MAC/WINDOWS, YOU CANNOT JUST COPY YOUR MUJOCO BINARY (MAC/WINDOWS VERSION) INTO THE HPC MACHINES. Instead, you should download the linux version of mujoco binary from the mujoco website on your machine and then transfer to hpc using Filezella, or download it from mujoco website to hpc directly, using sth like wget.  
+
 
 4. 
 add additional library path line to .bashrc,
