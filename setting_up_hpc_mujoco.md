@@ -1,4 +1,6 @@
 # Instructions to set up mujoco and torch on your hpc 
+This is a guide on setting up mujoco environments for hpc (can also use for set up on personal ubuntu machines.)
+
 *Please pay special attention to places with the word **NOTE**, that's where things can go wrong easily.*  
 Last updated July 19, 2018.  
 
