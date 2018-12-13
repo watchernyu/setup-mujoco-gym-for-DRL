@@ -35,3 +35,6 @@ Decide when email is sent. Choose from END, FAIL, BEGIN, ALL
 
 Number of cpu nodes. You have to write parallel code yourself!!! Don't expect this to automatically make your code parallel. If you don't have parallel code, just use one node.
 #SBATCH --nodes=2
+
+# run an interactive session on aquila
+srun -p aquila --pty --mem  500 -t 0-01:00 bash
