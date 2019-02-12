@@ -83,3 +83,7 @@ srun -p aquila --pty --mem  500 -t 0-01:00 bash
 This will let you enter a new shell, on a compute node in the aquila partition  
 
 Test your mujoco_py in this interactive shell. Load anaconda3, test mujoco by running python and import mujoco_py, and then try make a InvertedPendulum-v2 env. If everything works, then mujoco is good to go.
+
+**Other problems**
+Make sure you don't have package conflicts... you can for example use the command `conda list -n rl` to see what packages you have under the virtualenv rl. For instance if you found multiple numpy packages in your virtualenv (possibly one is install via pip, and the other is installed via conda), you might want to remove one of them (for instance, remove the one installed via conda). In this way it's less likely to get into problems with package conflict. Otherwise your program might don't know which one to use, and you can get into really funny errors.
+
