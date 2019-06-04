@@ -2,7 +2,11 @@
 This is a guide on setting up mujoco environments for hpc (can also use for set up on personal ubuntu machines.)
 
 *Please pay special attention to places with the word **NOTE**, that's where things can go wrong easily.*  
-Last updated July 19, 2018.  
+Last updated June 4, 2019.  
+
+# Python package version notice
+Currently support: pytorch 0.4.1, gym 0.12.0, mujoco-py 1.50.1.68.
+For gym and mujoco-py use git's checkout command to get currect versions.
 
 First log in to your hpc account (After you applied for one)  
 ```
