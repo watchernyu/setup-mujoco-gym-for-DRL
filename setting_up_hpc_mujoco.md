@@ -39,6 +39,7 @@ Install mujoco-py, with the correct way. **NOTE**: other ways of installing mujo
 ```
 git clone https://github.com/openai/mujoco-py
 cd mujoco-py
+git checkout 498b451
 pip install -e . --no-cache
 ```
 3. 
