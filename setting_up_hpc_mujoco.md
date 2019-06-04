@@ -27,10 +27,11 @@ source activate rl
 **NOTE**: For all of the following, you should be inside your rl virtualenv. (you want to install python libraries into your rl virtualenv, not somewhere else.)
 
 1.
-Install gym, download gym github repo and install minimum, according to gym doc.  
+Install gym, download gym github repo and install minimum, according to gym doc. Use git checkout to get correct version. 
 ```
 git clone https://github.com/openai/gym.git
 cd gym
+git checkout a4adef2
 pip install -e .
 ```
 2.
