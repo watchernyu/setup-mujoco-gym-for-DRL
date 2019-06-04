@@ -26,6 +26,8 @@ source activate rl
 
 **NOTE**: For all of the following, you should be inside your rl virtualenv. (you want to install python libraries into your rl virtualenv, not somewhere else.)
 
+**NOTE** for mac you might run into issues related to gcc, install brew then install gcc might solve that. For windows esiest way is to use Anaconda prompt. 
+
 1.
 Install gym related dependencies: 
 https://github.com/openai/gym
@@ -38,8 +40,7 @@ git checkout a4adef2
 pip install -e .
 ```
 
-
-2.
+2. 
 Install mujoco-py, with the correct way. **NOTE**: other ways of installing mujoco-py often fail, please use this method. 
 ```
 git clone https://github.com/openai/mujoco-py
@@ -48,7 +49,7 @@ git checkout 498b451
 pip install -e . --no-cache
 ```
 
-Enter the mujoco-py folder and install mujoco-py dependencies.
+Enter the mujoco-py folder and install mujoco-py dependencies. Or refer to mujoco-py repo for details. https://github.com/openai/mujoco-py
 ```
 cd mujoco-py
 pip install -r requirements.txt
@@ -78,6 +79,7 @@ now you want to get back to the gym folder and install mujoco (after you set up 
 cd gym
 pip install -e '.[mujoco]'
 ```
+note here in windows you might want to use `pip install -e .[mujoco]` instead. 
 
 other dependencies should be there already, thanks to help from our hpc admin Zhiguo.
 
