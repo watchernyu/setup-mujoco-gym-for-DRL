@@ -23,6 +23,7 @@ set up a virtual environment with the command (call it 'rl' or whatever, and use
 conda create -n rl python=3.6
 source activate rl 
 ```
+Note that in some machines you might need to use `conda activate rl` instead. If your source activate doesn't work. 
 
 **NOTE**: For all of the following, you should be inside your rl virtualenv. (you want to install python libraries into your rl virtualenv, not somewhere else.)
 
