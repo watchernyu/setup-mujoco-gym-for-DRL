@@ -42,6 +42,14 @@ cd mujoco-py
 git checkout 498b451
 pip install -e . --no-cache
 ```
+
+Enter the mujoco-py folder and install mujoco-py dependencies.
+```
+cd mujoco-py
+pip install -r requirements.txt
+pip install -r requirements.dev.txt
+```
+
 3. 
 create .mujoco folder under your home:
 ```
