@@ -18,6 +18,13 @@ ssh netid@hpc.shanghai.nyu.edu
 0. 
 load conda first  
 `module load anaconda3`  
+
+**NOTE** on hpc there are certain system packages that might not loaded by default, if you want to use them you should load them using `module load`.
+```
+module load glfw/3.3
+module load gcc/7.3
+```
+
 set up a virtual environment with the command (call it 'rl' or whatever, and use 3.6 for less trouble), if you never used virtualenv, try spend 10 min search for what that is  
 ```
 conda create -n rl python=3.6
@@ -72,7 +79,6 @@ add additional library path line to .bashrc,
 you can just run the following command to do this (or you can just try import mujoco_py in python and follow the mujoco_py error message.):  
 `echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/gpfsnyu/home/NETID/.mujoco/mjpro150/bin' >> ~/.bashrc`  
 **NOTE**: `NETID` should be your netid, please change that part. **NOTE** that you should use single quotation marks `'`, don't use double quotation, otherwise the line added to your .bashrc will be different. 
-
 
 5. 
 now you want to get back to the gym folder and install mujoco (after you set up mujoco files and stuff)
