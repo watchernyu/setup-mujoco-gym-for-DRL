@@ -112,6 +112,10 @@ This will let you enter a new shell, on a compute node in the aquila partition
 
 Test your mujoco_py in this interactive shell. Load anaconda3, test mujoco by running python and import mujoco_py, and then try make a InvertedPendulum-v2 env. If everything works, then mujoco is good to go.
 
+9. Testing with hpc script
+
+Try to sbatch a script. **NOTE** not sure why but when you activated a conda env in login node, then activate it again in your sbatch script, you will get an error. Simply deactivate your conda env in login node then it will be fixed. Probably activate twice will cause problems. 
+
 **Other problems**
 Make sure you don't have package conflicts... you can for example use the command `conda list -n rl` to see what packages you have under the virtualenv rl. For instance if you found multiple numpy packages in your virtualenv (possibly one is install via pip, and the other is installed via conda), you might want to remove one of them (for instance, remove the one installed via conda). In this way it's less likely to get into problems with package conflict. Otherwise your program might don't know which one to use, and you can get into really funny errors.
 
