@@ -1,12 +1,14 @@
 # Instructions to set up mujoco and torch on your hpc 
-This is a guide on setting up mujoco environments for hpc (can also use for set up on personal ubuntu machines.)
+This is a guide on setting up mujoco environments for hpc (can also use for set up on personal ubuntu machines, just ignore the hpc related things.)
 
 *Please pay special attention to places with the word **NOTE**, that's where things can go wrong easily.*  
-Last updated June 4, 2019. 
+Last updated Sep 28, 2019. The installation can take anywhere from 2 hours to 2 weeks. If you get stuck try ask people in the group.
 
 # Python package version notice
 Currently support: pytorch 1.2(stable), do not use 0.4, please update your pytorch, gym 0.12.0, mujoco-py 1.50.1.68.
 For gym and mujoco-py use git's checkout command to get currect versions. 
+
+**NOTE** if you don't know git, virtualenv, how to use a terminal, you should first have a quick search for these to have some basic ideas, before you proceed. 
 
 First log in to your hpc account (After you applied for one)  
 ```
@@ -36,11 +38,11 @@ Note that in some machines you might need to use `conda activate rl` instead. If
 
 **NOTE** for mac you might run into issues related to gcc, install brew then install gcc might solve that. For windows esiest way is to use Anaconda prompt. 
 
-1.
-Install gym related dependencies: 
+1.Install gym
+1.1 Install gym related dependencies: (here I mean you need to go and read the gym requirements in this page and install them, if you skip this step there is no guarantee you will succeed in the next steps.)
 https://github.com/openai/gym
 
-Install gym, download gym github repo and install minimum, according to gym doc. Use git checkout to get correct version. 
+1.2 Install gym, download gym github repo and install minimum, according to gym doc. Use git checkout to get correct version. 
 ```
 git clone https://github.com/openai/gym.git
 cd gym
@@ -48,8 +50,8 @@ git checkout a4adef2
 pip install -e .
 ```
 
-2. 
-Install mujoco-py, with the correct way. **NOTE**: other ways of installing mujoco-py often fail, please use this method. 
+2. Install mujoco-py
+2.1 Install mujoco-py, with the correct way. **NOTE**: other ways of installing mujoco-py often fail, please use this method. First download the repo and install (remember to install in your virtualenv):
 ```
 git clone https://github.com/openai/mujoco-py
 cd mujoco-py
@@ -57,25 +59,25 @@ git checkout 498b451
 pip install -e . --no-cache
 ```
 
-Enter the mujoco-py folder and install mujoco-py dependencies. Or refer to mujoco-py repo for details. https://github.com/openai/mujoco-py
+2.2 Enter the mujoco-py folder and install mujoco-py dependencies. Or refer to mujoco-py repo for details. (you need to actually go the repo and read stuff, dependencies won't install themselves for you.) https://github.com/openai/mujoco-py
 ```
 cd mujoco-py
 pip install -r requirements.txt
 pip install -r requirements.dev.txt
 ```
 
-3. 
-create .mujoco folder under your home:
+3. Get mujoco
+3.1 create .mujoco folder under your home:
 ```
 cd ~ 
 mkdir .mujoco
 ```
-and put mjpro150 folder into this folder also put in your liscense.  
+and put mjpro150 folder (download it from their website) into this folder also put in your liscense (use school liscence).  
 **NOTE**: THE HPC IS RUNNING LINUX SYSTEM, MEANING IF YOU USE MAC/WINDOWS, YOU CANNOT JUST COPY YOUR MUJOCO BINARY (MAC/WINDOWS VERSION) INTO THE HPC MACHINES. Instead, you should download the linux version of mujoco binary from the mujoco website on your machine and then transfer to hpc using Filezella, or download it from mujoco website to hpc directly, using sth like wget.  
 
 
 4. 
-add additional library path line to .bashrc,
+add additional library path line to .bashrc, (if it's on your own computer this step will be different, your path will not be the hpc path, you can just try create a mujoco env in python, then it will give an error, follow the instrustion with the error to add path. In that case you can do step 5 first, then do step 4.)
 you can just run the following command to do this (or you can just try import mujoco_py in python and follow the mujoco_py error message.):  
 `echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/gpfsnyu/home/NETID/.mujoco/mjpro150/bin' >> ~/.bashrc`  
 **NOTE**: `NETID` should be your netid, please change that part. **NOTE** that you should use single quotation marks `'`, don't use double quotation, otherwise the line added to your .bashrc will be different. 
@@ -86,9 +88,9 @@ now you want to get back to the gym folder and install mujoco (after you set up 
 cd gym
 pip install -e '.[mujoco]'
 ```
-note here in windows you might want to use `pip install -e .[mujoco]` instead. 
+note in windows you might want to use `pip install -e .[mujoco]` instead. 
 
-other dependencies should be there already, thanks to help from our hpc admin Zhiguo.
+other dependencies should be there already, thanks to help from our hpc admin Zhiguo. 
 
 6. 
 install torch into your rl virtualenv, according to pytorch website
@@ -110,7 +112,7 @@ srun -p aquila --pty --mem  500 -t 0-01:00 bash
 ```
 This will let you enter a new shell, on a compute node in the aquila partition  
 
-Test your mujoco_py in this interactive shell. Load anaconda3, test mujoco by running python and import mujoco_py, and then try make a InvertedPendulum-v2 env. If everything works, then mujoco is good to go.
+Test your mujoco_py in this interactive shell. Load anaconda3, test mujoco by running python and import mujoco_py, and then try make a InvertedPendulum-v2 env. If everything works, then mujoco is good to go. If you miss any system packages use `module avail` to see if hpc has that, then use `module load` to load it. 
 
 9. Testing with hpc script
 
