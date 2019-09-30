@@ -10,6 +10,8 @@ For gym and mujoco-py use git's checkout command to get currect versions.
 
 **NOTE** if you don't know git, virtualenv, how to use a terminal, you should first have a quick search for these to have some basic ideas, before you proceed. 
 
+**NOTE** for the hpc part, if you already have your own anaconda (miniconda) installed in hpc, it will likely cause a path conflict with the anaconda module of hpc. If you encountered such weird problem, you can try fix it... or (if you can't fix it) just delete everything you have with your own miniconda and start use the anaconda hpc module. 
+
 First log in to your hpc account (After you applied for one)  
 ```
 ssh netid@hpc.shanghai.nyu.edu  
