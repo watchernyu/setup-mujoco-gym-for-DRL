@@ -25,8 +25,7 @@ load conda first
 
 **NOTE** on hpc there are certain system packages that might not loaded by default, if you want to use them you should load them using `module load`.
 ```
-module load glfw/3.3
-module load gcc/7.3
+module load cuda/9.0 glfw/3.3 gcc/7.3 mesa/19.0.5 llvm/7.0.1
 ```
 
 set up a virtual environment with the command (call it 'rl' or whatever, and use 3.6 for less trouble), if you never used virtualenv, try spend 10 min search for what that is  
@@ -108,7 +107,7 @@ install any other python libraries you want to use (for example seaborn)
 
 You want to do this part in an interactive shell on a compute node. NOTE: PLEASE USE THE **aquila** partition for your testing, **don't use** your **login** node or **debug** partition, the login and debug partition don't have correct versions of the dependencies.
  
-run the following command to get an interactive shell with cpu. 
+run the following command to get an interactive shell with cpu. **NOTE** Before you do it **deactivate** the rl environment (for some reason if you are in a virtualenv and then you enter a new node there will be problem.) After you `source deactive`, run the following command:
 ```
 srun -p aquila --pty --mem  500 -t 0-01:00 bash
 ```
@@ -118,7 +117,7 @@ Test your mujoco_py in this interactive shell. Load anaconda3, test mujoco by ru
 
 9. Testing with hpc script
 
-Try to sbatch a script. **NOTE** not sure why but when you activated a conda env in login node, then activate it again in your sbatch script, you will get an error. Simply deactivate your conda env in login node then it will be fixed. Probably activate twice will cause problems. 
+Try to sbatch a script. **NOTE** not sure why but when you activated a conda env in login node, then activate it again in your sbatch script, you will get an error. Simply deactivate your conda env in login node then it will be fixed. Probably activate twice will cause problems. **NOTE** So before you `sbatch` a hpc script, make sure you **deactivate** the rl environment. When you submit a job you are starting a new process. If you look at the sample hpc script you can see that once it starts to run, it will load modules and activate the virtual env. 
 
 **Other problems**
 Make sure you don't have package conflicts... you can for example use the command `conda list -n rl` to see what packages you have under the virtualenv rl. For instance if you found multiple numpy packages in your virtualenv (possibly one is install via pip, and the other is installed via conda), you might want to remove one of them (for instance, remove the one installed via conda). In this way it's less likely to get into problems with package conflict. Otherwise your program might don't know which one to use, and you can get into really funny errors.
