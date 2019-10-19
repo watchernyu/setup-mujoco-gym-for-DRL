@@ -76,7 +76,7 @@ inside python, simply run:
 import mujoco_py
 ```
 
-2.4 Some **mac** users will run into gcc error. First check your gcc version: `gcc --version`. gcc-6 is the version that works. gcc-4 and gcc-7 seem to fail. Now check if you have a gcc-6, if not you need to install via brew. Even if you have one, it might not be your default gcc. Now you want to make that your default gcc. Create a symbolic link so that your gcc points to gcc-6. Here is a tutorial on how symbolic link works: https://www.youtube.com/watch?v=-edTHKZdkjo start from 4:25. Basically the command is something similar to:  
+2.4 Some **mac** users will run into gcc error. First check your gcc version: `gcc --version`. gcc-6 is the version that works. gcc-4 and gcc-7 seem to fail (not sure why gcc 7 works on linux but fails on mac??). Now check if you have a gcc-6, if not you need to install via brew. Even if you have one, it might not be your default gcc. Now you want to make that your default gcc. Create a symbolic link so that your gcc points to gcc-6. Here is a tutorial on how symbolic link works: https://www.youtube.com/watch?v=-edTHKZdkjo start from 4:25. Basically the command is something similar to:  
 ```
 cd /usr/local/bin
 ln -s gcc-6 gcc
