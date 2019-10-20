@@ -83,6 +83,8 @@ ln -s gcc-6 gcc
 ```
 There are other fixes but this one seems to be easy.
 
+2.5 sometimes you get module not found error while the package is there, or other weird python error, refer to last part of this page on multiple package installation conflict.
+
 3. Get mujoco
 3.1 create .mujoco folder under your home:
 ```
@@ -136,5 +138,5 @@ Test your mujoco_py in this interactive shell. Load anaconda3, test mujoco by ru
 Try to sbatch a script. **NOTE** not sure why but when you activated a conda env in login node, then activate it again in your sbatch script, you will get an error. Simply deactivate your conda env in login node then it will be fixed. Probably activate twice will cause problems. **NOTE** So before you `sbatch` a hpc script, make sure you **deactivate** the rl environment. When you submit a job you are starting a new process. If you look at the sample hpc script you can see that once it starts to run, it will load modules and activate the virtual env. 
 
 **Other problems**
-Make sure you don't have package conflicts... you can for example use the command `conda list -n rl` to see what packages you have under the virtualenv rl. For instance if you found multiple numpy packages in your virtualenv (possibly one is install via pip, and the other is installed via conda), you might want to remove one of them (for instance, remove the one installed via conda). In this way it's less likely to get into problems with package conflict. Otherwise your program might don't know which one to use, and you can get into really funny errors.
+Make sure you don't have package conflicts... you can for example use the command `conda list -n rl` to see what packages you have under the virtualenv rl. For instance if you found multiple numpy packages in your virtualenv (possibly one is install via pip, and the other is installed via conda), you might want to remove one of them (for instance, remove the one installed via conda). In this way it's less likely to get into problems with package conflict. Otherwise your program might don't know which one to use, and you can get into really funny errors. Now sometimes the virtual env is really messed up, you might want to do **multiple** pip uninstall and conda uninstall for a certain package (uninstall for once might not work), after several uninstallations, you should see a message saying skipping uninstall because package not found. That's when you can install the package again. 
 
