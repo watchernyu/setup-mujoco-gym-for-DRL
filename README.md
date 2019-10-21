@@ -2,6 +2,8 @@
 
 To set up mujoco environment on the hpc cluster, simply follow the instructions here. The procedure here is also very useful for setting up mujoco on your personal machine. This guide has been tested extensively on our hpc (centOS), ubuntu, and mac, and a few windows. (Still lacking windows support)
 
+If you are in NYU NY, the procedure should still be very similar. Our current supported version is not the newest version. But you still might find useful debugging info here. 
+
 To submit a job on hpc, check out
 sample_hpc_script.sh
 
