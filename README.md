@@ -154,3 +154,5 @@ Make sure you don't have package conflicts... you can for example use the comman
 In rare cases, package conflict can lead to weird errors such as not being able to import many packages, or segment fault in submitting job to hpc. Upon such bugs, systematically try to find where the problem is, for example, first try run python, do hello world, or import some library, and submit hpc job with your base environment, then try the same thing but with your virtualenv. After locating the problem, for example if the problem only occurs in your virtual env, try find potential package conflict, or remove your env and install again. 
 
 cached package problems, sometimes you cannot install a package, or find a weird not zip error when doing pip install. Try install with the `--no-cache` flag. This will disable cached package files, and will fix your install if you happen to cached some corrupted files before. 
+
+If you spell things wrong, they won't work. 
