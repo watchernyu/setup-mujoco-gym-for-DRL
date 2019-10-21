@@ -1,3 +1,10 @@
+# This is a repo made specifically to help NYU Shanghai DRL group students to set up hpc environments.
+
+To set up mujoco environment on the hpc cluster, simply follow the instructions here. The procedure here is also very useful for setting up mujoco on your personal machine. This guide has been tested extensively on our hpc (centOS), ubuntu, and mac, and a few windows. (Still lacking windows support)
+
+To submit a job on hpc, check out
+sample_hpc_script.sh
+
 # Instructions to set up mujoco and torch on your hpc 
 This is a guide on setting up mujoco environments for hpc (can also use for set up on personal ubuntu machines, just ignore the hpc related things.)
 
