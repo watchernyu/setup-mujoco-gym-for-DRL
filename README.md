@@ -156,3 +156,10 @@ In rare cases, package conflict can lead to weird errors such as not being able 
 cached package problems, sometimes you cannot install a package, or find a weird not zip error when doing pip install. Try install with the `--no-cache` flag. This will disable cached package files, and will fix your install if you happen to cached some corrupted files before. 
 
 If you spell things wrong, they won't work. 
+
+# Extra stuff: optimize your workflow
+1. Make a ssh key pair so that you don't type your password everytime you login to hpc: https://www.youtube.com/watch?v=vpk_1gldOAE
+
+2. Install filezilla: https://filezilla-project.org/ 
+
+Setup filezilla for easy file transfer: host is sftp://hpc.shanghai.nyu.edu and port is 22.
