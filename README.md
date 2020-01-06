@@ -1,4 +1,6 @@
-# This is a repo made specifically to help NYU Shanghai DRL group students to set up hpc environments.
+# How to set up openai gym and mujoco for deep reinforcement learning research. 
+
+### This repo contains a very comprehensive, and very useful information on how to set up openai-gym and mujoco_py and mujoco for deep reinforcement learning algorithms research. The instructions here aim to set up on a linux-based high-performance computer cluster, but can also be used for installation on a ubuntu machine. It can also be used on macs. And can even be of some help for a windows installation (but had limited tests). This guide focuses on mujoco 150. If you are using newer version of mujoco, some things might need to be adjusted. 
 
 To set up mujoco environment on the hpc cluster, simply follow the instructions here. The procedure here is also very useful for setting up mujoco on your personal machine. This guide has been tested extensively on our hpc (centOS), ubuntu, and mac, and a few windows. (Still lacking windows support)
 
@@ -48,7 +50,9 @@ Note that in some machines you might need to use `conda activate rl` instead. If
 
 **NOTE** for mac you might run into issues related to gcc, install brew then install gcc might solve that. For windows esiest way is to use Anaconda prompt. 
 
-1.Install gym
+1.
+Install gym
+
 1.1 Install gym related dependencies: (here I mean you need to go and read the gym requirements in this page and install them, if you skip this step there is no guarantee you will succeed in the next steps.)
 https://github.com/openai/gym
 
@@ -60,7 +64,9 @@ git checkout a4adef2
 pip install -e .
 ```
 
-2. Install mujoco-py
+2. 
+Install mujoco-py
+
 2.1 Install mujoco-py, with the correct way. **NOTE**: other ways of installing mujoco-py often fail, please use this method. First download the repo and install (remember to install in your virtualenv):
 ```
 git clone https://github.com/openai/mujoco-py
@@ -76,7 +82,23 @@ pip install -r requirements.txt
 pip install -r requirements.dev.txt
 ```
 
-2.3 test if mujoco-py installed correctly, first enter `python`:
+for the dependencies, if you are installing on your local machine, and if your machine is linux, try run `sudo apt-get install curl git libgl1-mesa-dev libgl1-mesa-glx libglew-dev libosmesa6-dev software-properties-common net-tools unzip vim virtualenv wget xpra xserver-xorg-dev` to install them all. (These can be found in the mujoco_py repo) If you are on mac or windows, there might be some other dependencies. 
+
+You will need to complete step 3. get mujoco before you can test your mujoco_py installation. 
+
+
+3. 
+Get mujoco
+
+3.1 create .mujoco folder under your home:
+```
+cd ~ 
+mkdir .mujoco
+```
+and put mjpro150 folder (download it from their website) into this folder also put in your liscense (use school liscence).  
+**NOTE**: THE HPC IS RUNNING LINUX SYSTEM, MEANING IF YOU USE MAC/WINDOWS, YOU CANNOT JUST COPY YOUR MUJOCO BINARY (MAC/WINDOWS VERSION) INTO THE HPC MACHINES. Instead, you should download the linux version of mujoco binary from the mujoco website on your machine and then transfer to hpc using Filezella, or download it from mujoco website to hpc directly, using sth like wget. **NOTE** under your .mujoco folder, you should have `mjpro150` folder (which is not the `mjpro150_linux` folder, if you saw `mjpro150_linux`, then `mjpro150` is inside it, please move `mjpro150` to be directly under `.mujoco`) and `mjkey.txt` should also be under your `.mujoco` folder. 
+
+3.2 test if mujoco-py installed correctly, first enter `python`:
 ```
 python
 ```
@@ -85,23 +107,14 @@ inside python, simply run:
 import mujoco_py
 ```
 
-2.4 Some **mac** users will run into gcc error. First check your gcc version: `gcc --version`. gcc-6 is the version that works. gcc-4 and gcc-7 seem to fail (not sure why gcc 7 works on linux but fails on mac??). Now check if you have a gcc-6, if not you need to install via brew. Even if you have one, it might not be your default gcc. Now you want to make that your default gcc. Create a symbolic link so that your gcc points to gcc-6. Here is a tutorial on how symbolic link works: https://www.youtube.com/watch?v=-edTHKZdkjo start from 4:25. Basically the command is something similar to:  
+3.3 Some **mac** users will run into gcc error. First check your gcc version: `gcc --version`. gcc-6 is the version that works. gcc-4 and gcc-7 seem to fail (not sure why gcc 7 works on linux but fails on mac??). Now check if you have a gcc-6, if not you need to install via brew. Even if you have one, it might not be your default gcc. Now you want to make that your default gcc. Create a symbolic link so that your gcc points to gcc-6. Here is a tutorial on how symbolic link works: https://www.youtube.com/watch?v=-edTHKZdkjo start from 4:25. Basically the command is something similar to:  
 ```
 cd /usr/local/bin
 ln -s gcc-6 gcc
 ```
 There are other fixes but this one seems to be easy.
 
-2.5 sometimes you get module not found error while the package is there, or other weird python error, refer to last part of this page on multiple package installation conflict.
-
-3. Get mujoco
-3.1 create .mujoco folder under your home:
-```
-cd ~ 
-mkdir .mujoco
-```
-and put mjpro150 folder (download it from their website) into this folder also put in your liscense (use school liscence).  
-**NOTE**: THE HPC IS RUNNING LINUX SYSTEM, MEANING IF YOU USE MAC/WINDOWS, YOU CANNOT JUST COPY YOUR MUJOCO BINARY (MAC/WINDOWS VERSION) INTO THE HPC MACHINES. Instead, you should download the linux version of mujoco binary from the mujoco website on your machine and then transfer to hpc using Filezella, or download it from mujoco website to hpc directly, using sth like wget.  
+3.4 sometimes you get module not found error while the package is there, or other weird python error, refer to last part of this page on multiple package installation conflict.
 
 
 4. 
@@ -130,7 +143,8 @@ conda install pytorch torchvision cuda90 -c pytorch
 7. 
 install any other python libraries you want to use (for example seaborn)
 
-8. Testing
+8. 
+Testing
 
 You want to do this part in an interactive shell on a compute node. NOTE: PLEASE USE THE **aquila** partition for your testing, **don't use** your **login** node or **debug** partition, the login and debug partition don't have correct versions of the dependencies.
  
@@ -142,7 +156,8 @@ This will let you enter a new shell, on a compute node in the aquila partition
 
 Test your mujoco_py in this interactive shell. Load anaconda3, test mujoco by running python and import mujoco_py, and then try make a InvertedPendulum-v2 env. If everything works, then mujoco is good to go. If you miss any system packages use `module avail` to see if hpc has that, then use `module load` to load it. 
 
-9. Testing with hpc script
+9. 
+Testing with hpc script
 
 Try to sbatch a script. **NOTE** not sure why but when you activated a conda env in login node, then activate it again in your sbatch script, you will get an error. Simply deactivate your conda env in login node then it will be fixed. Probably activate twice will cause problems. **NOTE** So before you `sbatch` a hpc script, make sure you **deactivate** the rl environment. When you submit a job you are starting a new process. If you look at the sample hpc script you can see that once it starts to run, it will load modules and activate the virtual env. 
 
