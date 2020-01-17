@@ -134,11 +134,11 @@ note in windows you might want to use `pip install -e .[mujoco]` instead.
 other dependencies should be there already, thanks to help from our hpc admin Zhiguo. 
 
 6. 
-install torch into your rl virtualenv, according to pytorch website
+install torch 1.2 into your rl virtualenv, according to pytorch website
 ```
 module load cuda/9.0
-conda install pytorch torchvision cuda90 -c pytorch
 ```
+Find pytorch 1.2 install here (install gpu version on hpc. For your local machine, install gpu version if you have a nvidia gpu otherwise cpu version): https://pytorch.org/get-started/previous-versions/
 
 7. 
 install any other python libraries you want to use (for example seaborn)
