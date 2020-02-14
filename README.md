@@ -173,7 +173,7 @@ cached package problems, sometimes you cannot install a package, or find a weird
 If you spell things wrong, they won't work. 
 
 # Extra stuff: optimize your workflow
-1. Make a ssh key pair so that you don't type your password everytime you login to hpc: https://www.youtube.com/watch?v=vpk_1gldOAE
+1. Make a ssh key pair so that you don't type your password everytime you login to hpc: https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-1604 or https://www.youtube.com/watch?v=vpk_1gldOAE
 
 2. Install filezilla: https://filezilla-project.org/ 
 
