@@ -2,6 +2,8 @@
 
 ### This repo contains a very comprehensive, and very useful information on how to set up openai-gym and mujoco_py and mujoco for deep reinforcement learning algorithms research. The instructions here aim to set up on a linux-based high-performance computer cluster, but can also be used for installation on a ubuntu machine. It can also be used on macs. And can even be of some help for a windows installation (but had limited tests). This guide focuses on mujoco 150. If you are using newer version of mujoco, some things might need to be adjusted. 
 
+### If you are installing on your local machine, skip the hpc steps such as `module load`, and you will need to install system dependencies, for example, the list of `sudo apt install` for ubuntu. 
+
 To set up mujoco environment on the hpc cluster, simply follow the instructions here. The procedure here is also very useful for setting up mujoco on your personal machine. This guide has been tested extensively on our hpc (centOS), ubuntu, and mac, and a few windows. (Still lacking windows support)
 
 If you are in NYU NY, the procedure should still be very similar. Our current supported version is not the newest version. But you still might find useful debugging info here. 
