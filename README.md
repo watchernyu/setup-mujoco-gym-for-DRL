@@ -11,6 +11,8 @@ If you are in NYU NY, the procedure should still be very similar. Our current su
 To submit a job on hpc, check out
 sample_hpc_script.sh
 
+**NOTE** there is no internet on non-login nodes, we need to install things in login node, then test on compute nodes. 
+
 # Instructions to set up mujoco and torch on your hpc 
 This is a guide on setting up mujoco environments for hpc (can also use for set up on personal ubuntu machines, just ignore the hpc related things.)
 
