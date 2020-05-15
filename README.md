@@ -86,7 +86,7 @@ pip install -r requirements.txt
 pip install -r requirements.dev.txt
 ```
 
-for the dependencies, if you are installing on your local machine, and if your machine is linux, try run `sudo apt-get install curl git libgl1-mesa-dev libgl1-mesa-glx libglew-dev libosmesa6-dev software-properties-common net-tools unzip vim virtualenv wget xpra xserver-xorg-dev` to install them all. (These can be found in the mujoco_py repo) If you are on mac or windows, there might be some other dependencies. 
+for the dependencies, if you are installing on your local machine, and if your machine is linux, try run `sudo apt install curl git libgl1-mesa-dev libgl1-mesa-glx libglew-dev libosmesa6-dev software-properties-common net-tools unzip vim virtualenv wget xpra xserver-xorg-dev` to install them all. (These can be found in the mujoco_py repo) If you are on mac or windows, there might be some other dependencies. 
 
 You will need to complete step 3. get mujoco before you can test your mujoco_py installation. 
 
