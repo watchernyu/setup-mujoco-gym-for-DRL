@@ -182,3 +182,10 @@ If you spell things wrong, they won't work.
 2. Install filezilla: https://filezilla-project.org/ 
 
 Setup filezilla for easy file transfer: host is sftp://hpc.shanghai.nyu.edu and port is 22.
+
+windows problem with error: Unable to find vcvarsall.bat:
+This is likely due to lack of C++ compile tools, look for the gtatiya response: 
+https://github.com/openai/mujoco-py/issues/253
+
+Essentially you want to install the following file: 
+Install Microsoft Visual C++ Build Tools 2015: https://download.microsoft.com/download/5/f/7/5f7acaeb-8363-451f-9425-68a90f98b238/visualcppbuildtools_full.exe?fixForIE=.exe
