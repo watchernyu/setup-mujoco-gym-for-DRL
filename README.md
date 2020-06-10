@@ -73,6 +73,7 @@ Install mujoco-py
 
 2.1 Install mujoco-py, with the correct way. **NOTE**: other ways of installing mujoco-py often fail, please use this method. First download the repo and install (remember to install in your virtualenv):
 ```
+cd ..  
 git clone https://github.com/openai/mujoco-py
 cd mujoco-py
 git checkout 498b451
@@ -81,7 +82,6 @@ pip install -e . --no-cache
 
 2.2 Enter the mujoco-py folder and install mujoco-py dependencies. Or refer to mujoco-py repo for details. (you need to actually go the repo and read stuff, dependencies won't install themselves for you.) https://github.com/openai/mujoco-py
 ```
-cd mujoco-py
 pip install -r requirements.txt
 pip install -r requirements.dev.txt
 ```
