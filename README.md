@@ -1,5 +1,9 @@
 # This page will be updated soon
 
+The tutorial now has a newer version (that also includes installing the prototyping repo) that is hosted here: 
+
+https://github.com/watchernyu/spinningup-drl-prototyping  
+
 
 # How to set up openai gym and mujoco for deep reinforcement learning research. 
 
